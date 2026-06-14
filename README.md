@@ -1,6 +1,6 @@
 # Website CV — Hanry Roslaw Saputra
 
-Website Curriculum Vitae (CV) pribadi yang dibuat sebagai tugas mata kuliah **Pemrograman Web**. Website ini menampilkan biodata, riwayat pendidikan, pengalaman kerja, keahlian, serta informasi kontak dalam tampilan yang modern, profesional, dan responsif.
+Website Curriculum Vitae (CV) pribadi yang dibuat sebagai tugas UTS mata kuliah **Pemrograman Web**. Website ini menampilkan biodata, riwayat pendidikan, pengalaman kerja, keahlian, serta informasi kontak dalam tampilan yang modern, profesional, dan responsif.
 
 ## Informasi
 
