@@ -1,12 +1,12 @@
 /* =================================================================
    CV Hanry Roslaw Saputra - Stylesheet
-   Berisi penataan tampilan: body, navbar, hero, kartu, tabel,
-   gambar, tombol, footer, dan penyesuaian untuk layar kecil.
+   Memuat penataan tampilan: body, navbar, hero, kartu, tabel,
+   gambar, tombol, footer, beserta penyesuaian untuk layar kecil.
    ================================================================= */
 
-/* ---------- Palet warna yang dipakai berulang ---------- */
+/* ---------- Palet warna yang dipakai berulang melalui custom property ---------- */
 :root {
-  --navy: #0a2540;          /* biru tua dominan */
+  --navy: #0a2540;          /* biru tua sebagai warna dominan */
   --navy-dark: #061a2e;
   --blue: #1d6fe0;          /* aksen biru */
   --blue-light: #4da3ff;    /* aksen biru muda */
@@ -24,7 +24,7 @@ body {
   background-color: var(--white);
 }
 
-/* Offset agar anchor tidak tertutup navbar fixed */
+/* Memberi jarak agar target anchor tidak tertutup navbar yang fixed */
 section {
   scroll-margin-top: 70px;
 }
@@ -37,7 +37,7 @@ section {
   padding-bottom: 1rem;
 }
 
-/* Efek navbar saat halaman di-scroll (di-toggle oleh JavaScript) */
+/* Tampilan navbar saat halaman digulir; kelasnya di-toggle melalui JavaScript */
 .navbar.navbar-scrolled {
   background-color: var(--navy-dark);
   padding-top: 0.5rem;
@@ -67,7 +67,7 @@ section {
   color: var(--blue-light);
 }
 
-/* Garis bawah animasi untuk menu aktif */
+/* Garis bawah beranimasi sebagai penanda menu yang sedang aktif */
 .navbar-nav .nav-link::after {
   content: "";
   position: absolute;
@@ -85,7 +85,7 @@ section {
   transform: scaleX(1);
 }
 
-/* ---------- Hero / bagian pembuka ---------- */
+/* ---------- Hero / bagian pembuka di bagian teratas halaman ---------- */
 .hero-section {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 60%, #103a66 100%);
   color: var(--white);
@@ -123,7 +123,7 @@ section {
   padding: 0 0.25rem;
 }
 
-/* Foto profil bulat dengan bingkai lembut */
+/* Foto profil berbentuk lingkaran dengan bingkai lembut */
 .hero-avatar {
   width: 280px;
   height: 280px;
@@ -133,7 +133,7 @@ section {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* ---------- Section umum & judul ---------- */
+/* ---------- Section umum & penataan judul ---------- */
 .py-section {
   padding: 5rem 0;
 }
@@ -155,7 +155,7 @@ section {
   margin-bottom: 1.25rem;
 }
 
-/* Garis pemisah di bawah judul section */
+/* Garis pemisah pendek di bawah judul tiap section */
 .section-divider {
   width: 70px;
   height: 4px;
@@ -176,7 +176,7 @@ section {
   transform: scale(1.02);
 }
 
-/* Slideshow "Tentang Saya" */
+/* Slideshow pada bagian "Tentang Saya" */
 /* Tinggi default dipakai saat layout menumpuk di layar kecil */
 .about-carousel {
   height: 300px;
@@ -191,15 +191,15 @@ section {
   border-radius: 12px;
 }
 
-/* Tiap gambar slide menutup area penuh tanpa gepeng */
+/* Tiap gambar slide mengisi area penuh tanpa terdistorsi */
 .about-slide {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Di desktop, gambar mengikuti tinggi kolom teks (tidak menambah tinggi
-   sendiri) sehingga sejajar dari awal teks sampai tombol kontak */
+/* Di desktop, gambar mengikuti tinggi kolom teks (tanpa menambah tinggi
+   sendiri) agar sejajar dari awal teks hingga tombol kontak */
 @media (min-width: 992px) {
   .about-img-col {
     position: relative;
@@ -215,7 +215,7 @@ section {
   }
 }
 
-/* Gambar galeri terasa bisa diklik (membuka popup) */
+/* Memberi kesan bahwa gambar galeri dapat diklik untuk membuka popup */
 .gallery-trigger {
   cursor: pointer;
 }
@@ -245,7 +245,7 @@ section {
 }
 
 /* ---------- Tabel biodata & pendidikan ---------- */
-/* Pembungkus memberi sudut membulat + bayangan pada tabel */
+/* Pembungkus yang memberi sudut membulat dan bayangan pada tabel */
 .cv-table-wrap {
   border-radius: 16px;
   overflow: hidden;
@@ -258,7 +258,7 @@ section {
   margin-bottom: 0;
 }
 
-/* Setiap sel diberi ruang lebih lega */
+/* Memberi padding pada tiap sel agar lebih lega */
 .cv-table td,
 .cv-table th {
   padding: 0.95rem 1.25rem;
@@ -266,7 +266,7 @@ section {
   vertical-align: middle;
 }
 
-/* Ikon kecil di depan label */
+/* Ikon kecil di depan label kolom */
 .cv-table th .bi {
   color: var(--blue);
   margin-right: 0.6rem;
@@ -285,12 +285,12 @@ section {
   color: var(--blue-light);
 }
 
-/* Baris belang lembut pada tabel pendidikan */
+/* Warna baris selang-seling yang lembut pada tabel pendidikan */
 .edu-table tbody tr:nth-child(even) {
   background-color: #f7faff;
 }
 
-/* Kolom label biodata dengan aksen garis biru */
+/* Kolom label biodata dengan aksen garis biru di sisi kiri */
 .biodata-table tbody th {
   background-color: #f4f8fd;
   color: var(--navy);
@@ -299,7 +299,7 @@ section {
   border-left: 4px solid var(--blue);
 }
 
-/* Sorotan baris saat kursor menyentuh */
+/* Sorotan baris saat kursor diarahkan (hover) */
 .cv-table tbody tr {
   transition: background-color 0.2s ease;
 }
@@ -309,7 +309,7 @@ section {
   background-color: #eaf2fe;
 }
 
-/* Lencana untuk menonjolkan jabatan & status */
+/* Badge untuk menonjolkan jabatan & status */
 .badge-role {
   background-color: var(--blue);
   color: var(--white);
@@ -326,7 +326,7 @@ section {
   margin-bottom: 0;
 }
 
-/* ---------- Kartu pengalaman, keahlian, & kontak ---------- */
+/* ---------- Kartu pengalaman, keahlian, dan kontak ---------- */
 .experience-card,
 .skill-card,
 .contact-card {
@@ -336,7 +336,7 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Kartu sedikit terangkat saat disentuh kursor */
+/* Kartu terangkat sedikit saat kursor diarahkan (hover) */
 .experience-card:hover,
 .skill-card:hover,
 .contact-card:hover {
@@ -367,7 +367,7 @@ section {
   margin-bottom: 0.75rem;
 }
 
-/* Badge periode kerja */
+/* Badge untuk periode kerja */
 .period-badge {
   background-color: var(--navy);
   color: var(--white);
@@ -414,7 +414,7 @@ section {
   margin-bottom: 2rem;
 }
 
-/* Kartu kontak diberi border + shadow lebih tegas dengan aksen atas
+/* Kartu kontak diberi border dan shadow lebih tegas serta aksen di sisi atas
    agar tidak menyatu dengan latar halaman yang putih */
 .contact-card {
   border: 1px solid #e7edf5;
@@ -525,7 +525,7 @@ section {
   background-color: var(--navy);
 }
 
-/* ---------- Elemen memudar naik saat masuk layar ---------- */
+/* ---------- Elemen yang muncul dengan efek memudar dan naik saat masuk viewport ---------- */
 [data-animate] {
   opacity: 0;
   transform: translateY(30px);
@@ -538,7 +538,7 @@ section {
 }
 
 /* =================================================================
-   Penyesuaian tampilan untuk tablet dan ponsel
+   Penyesuaian tampilan untuk tablet dan ponsel (responsif)
    ================================================================= */
 @media (max-width: 991.98px) {
   .hero-section {
@@ -577,7 +577,7 @@ section {
     height: 240px;
   }
 
-  /* Tinggi slideshow lebih ringkas di layar kecil */
+  /* Tinggi slideshow dibuat lebih ringkas pada layar kecil */
   .about-carousel {
     height: 260px;
   }

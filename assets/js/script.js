@@ -1,13 +1,13 @@
 /* =================================================================
    CV Hanry Roslaw Saputra - JavaScript
    Mengatur interaksi halaman: smooth scroll, tombol kembali ke atas,
-   perubahan navbar saat digulir, dan penanda menu yang sedang dibuka.
+   perubahan tampilan navbar saat digulir, dan penanda menu yang sedang aktif.
    ================================================================= */
 
 document.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
-  // Navbar berubah tampilan setelah halaman digulir lebih dari 50px
+  // Mengubah tampilan navbar ketika halaman digulir lebih dari 50px
   var navbar = document.getElementById('mainNavbar');
 
   function handleNavbarScroll() {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Tombol kembali ke atas muncul setelah cukup jauh menggulir
+  // Memunculkan tombol kembali ke atas setelah halaman digulir cukup jauh
   var scrollTopBtn = document.getElementById('scrollTopBtn');
 
   function toggleScrollTopBtn() {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Perpindahan antar section dibuat mulus; menu mobile ditutup setelah dipilih
+  // Membuat perpindahan antar section menjadi mulus; menu mobile ditutup setelah salah satu dipilih
   var internalLinks = document.querySelectorAll('a[href^="#"]');
   var navCollapse = document.getElementById('navMenu');
 
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-          // Tutup menu jika sedang terbuka di tampilan ponsel
+          // Menutup menu apabila sedang terbuka pada tampilan ponsel
           if (navCollapse && navCollapse.classList.contains('show')) {
             var bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
             if (bsCollapse) {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Menu navbar ikut tersorot mengikuti section yang sedang dilihat
+  // Menyorot menu navbar sesuai section yang sedang ditampilkan
   var sections = document.querySelectorAll('main section[id]');
   var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
     sectionObserver.observe(section);
   });
 
-  // Elemen ditampilkan dengan animasi lembut saat masuk layar
+  // Menampilkan elemen dengan animasi lembut saat masuk ke viewport
   var animatedEls = document.querySelectorAll('[data-animate]');
 
   var animateObserver = new IntersectionObserver(function (entries, observer) {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
     animateObserver.observe(el);
   });
 
-  // Klik gambar galeri untuk menampilkannya besar di dalam popup
+  // Menampilkan gambar galeri berukuran besar di dalam popup ketika diklik
   var galleryModalEl = document.getElementById('galleryModal');
   if (galleryModalEl && window.bootstrap) {
     var galleryModal = new bootstrap.Modal(galleryModalEl);
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
       img.addEventListener('click', function () {
         openGallery(this);
       });
-      // Dukung pembukaan lewat tombol Enter atau Spasi
+      // Mendukung pembukaan popup melalui tombol Enter atau Spasi
       img.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Catat di console ketika tautan WhatsApp dibuka
+  // Mencatat ke console saat tautan WhatsApp diklik
   var waLink = document.querySelector('a[href^="https://wa.me"]');
   if (waLink) {
     waLink.addEventListener('click', function () {
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Pantau scroll untuk navbar dan tombol ke atas, lalu set kondisi awal
+  // Memantau event scroll untuk navbar dan tombol ke atas, lalu menetapkan kondisi awalnya
   window.addEventListener('scroll', function () {
     handleNavbarScroll();
     toggleScrollTopBtn();
