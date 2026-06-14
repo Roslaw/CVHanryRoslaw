@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<!-- Bahasa halaman diset ke Indonesia -->
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Skala awal mengikuti lebar layar perangkat -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website CV pribadi Hanry Roslaw Saputra - Head IT PT Sinar Digital Nusantara.">
+  <meta name="author" content="Hanry Roslaw Saputra">
+
+  <title>CV Hanry Roslaw Saputra</title>
+
+  <!-- Font Poppins dari Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap dari CDN untuk layout & komponen dasar -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons untuk ikon kecil pada tabel & elemen lain -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Style buatan sendiri -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- Bar navigasi yang menempel di atas saat halaman digulir -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm" id="mainNavbar" aria-label="Navigasi utama">
+      <div class="container">
+        <!-- Klik nama untuk kembali ke bagian paling atas -->
+        <a class="navbar-brand fw-bold" href="#home">Hanry<span class="brand-accent">Roslaw</span></a>
+
+        <!-- Tombol hamburger yang muncul di layar kecil -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+          aria-controls="navMenu" aria-expanded="false" aria-label="Buka menu navigasi">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Tiap menu meloncat ke section dengan id yang sama -->
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">Tentang Saya</a></li>
+            <li class="nav-item"><a class="nav-link" href="#education">Pendidikan</a></li>
+            <li class="nav-item"><a class="nav-link" href="#experience">Pengalaman</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Keahlian</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Bagian pembuka: sapaan, nama, jabatan, dan foto -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7 hero-text" data-animate>
+            <p class="hero-greeting">Halo, perkenalkan saya</p>
+            <h1 class="hero-name">Hanry Roslaw Saputra</h1>
+            <h2 class="hero-role">Head IT &mdash; PT Sinar Digital Nusantara</h2>
+            <p class="hero-tagline">
+              Seorang <strong>Head IT</strong> yang berfokus pada pengembangan infrastruktur,
+              keamanan sistem, dan pengelolaan teknologi perusahaan.
+            </p>
+            <div class="hero-buttons">
+              <a href="#contact" class="btn btn-primary btn-lg me-2">Hubungi Saya</a>
+              <a href="#experience" class="btn btn-outline-light btn-lg">Lihat Pengalaman</a>
+            </div>
+          </div>
+
+          <div class="col-lg-5 text-center" data-animate>
+            <!-- Foto profil yang ditampilkan sebagai avatar bulat -->
+            <img src="assets/images/profile-avatar.jpg"
+              alt="Foto profil Hanry Roslaw Saputra, Head IT PT Sinar Digital Nusantara"
+              class="hero-avatar img-fluid">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian perkenalan diri secara lebih lengkap -->
+    <section id="about" class="py-section">
+      <div class="container">
+        <h2 class="section-title" data-animate>Tentang Saya</h2>
+        <div class="section-divider" data-animate></div>
+
+        <!-- Kolom diregangkan agar tinggi gambar = tinggi teks di sebelahnya -->
+        <div class="row align-items-stretch g-5">
+          <div class="col-lg-6 about-img-col" data-animate>
+            <!-- Slideshow otomatis (Bootstrap Carousel) saat halaman dibuka -->
+            <div id="aboutCarousel" class="carousel slide carousel-fade about-carousel"
+              data-bs-ride="carousel" data-bs-interval="4500" data-bs-pause="hover">
+              <!-- Titik indikator slide -->
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="0"
+                  class="active" aria-current="true" aria-label="Gambar 1"></button>
+                <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="1"
+                  aria-label="Gambar 2"></button>
+              </div>
+              <div class="carousel-inner rounded shadow">
+                <div class="carousel-item active">
+                  <img src="assets/images/technology.jpg" class="d-block about-slide"
+                    alt="Ilustrasi teknologi, keamanan siber, dan infrastruktur data center">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/images/office.jpg" class="d-block about-slide"
+                    alt="Suasana kantor IT modern dengan ruang server perusahaan">
+                </div>
+              </div>
+              <!-- Tombol navigasi manual maju/mundur -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Sebelumnya</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Berikutnya</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-animate>
+            <!-- Paragraf pertama: ringkasan latar belakang karier -->
+            <p>
+              Saya adalah seorang profesional di bidang IT dengan pengalaman pada
+              <em>quality control</em>, layanan hosting, <mark>cybersecurity</mark>,
+              <u>Security Operation Center</u>, serta pengelolaan infrastruktur perusahaan.
+              Saat ini saya berperan sebagai <strong>Head IT</strong> di
+              PT Sinar Digital Nusantara, dengan fokus pada pembangunan, pemeliharaan,
+              dan <u>pengembangan sistem</u> IT yang aman, stabil, dan sesuai kebutuhan perusahaan.
+              <small>Berpengalaman sejak 2012.</small>
+            </p>
+
+            <!-- Paragraf kedua: minat dan fokus pekerjaan -->
+            <p>
+              Dalam perjalanan karier, saya terbiasa bekerja dengan sistem yang membutuhkan
+              ketelitian, kecepatan analisis, dan kemampuan mengambil keputusan. Saya memiliki
+              ketertarikan besar pada bidang <em>IT Infrastructure</em>, <mark>network security</mark>,
+              cloud, dan pengembangan sistem yang membantu perusahaan berjalan lebih
+              <strong>efisien</strong> dan <strong>aman</strong>.
+            </p>
+
+            <!-- Loncat ke bagian kontak -->
+            <a href="#contact" class="btn btn-outline-primary mt-2">Lihat Informasi Kontak</a>
+          </div>
+        </div>
+
+        <!-- Ringkasan data diri dalam bentuk tabel -->
+        <div class="mt-5" data-animate>
+          <h3 class="subsection-title">Biodata</h3>
+          <div class="table-responsive cv-table-wrap">
+            <table class="table align-middle cv-table biodata-table mb-0">
+              <tbody>
+                <tr>
+                  <!-- Ikon mempertegas tiap label biodata -->
+                  <th scope="row"><i class="bi bi-person-fill"></i>Nama Lengkap</th>
+                  <td>Hanry Roslaw Saputra</td>
+                </tr>
+                <tr>
+                  <th scope="row"><i class="bi bi-building"></i>Perusahaan</th>
+                  <td>PT Sinar Digital Nusantara</td>
+                </tr>
+                <tr>
+                  <th scope="row"><i class="bi bi-briefcase-fill"></i>Jabatan</th>
+                  <td><span class="badge badge-role">Head IT</span></td>
+                </tr>
+                <tr>
+                  <th scope="row"><i class="bi bi-telephone-fill"></i>No. HP</th>
+                  <td>+62 89838 60095</td>
+                </tr>
+                <tr>
+                  <th scope="row"><i class="bi bi-envelope-fill"></i>Email</th>
+                  <!-- Klik untuk langsung membuka aplikasi email -->
+                  <td><a href="mailto:roslaw.it@gmail.com" class="contact-link">roslaw.it@gmail.com</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="cv-note"><small>Data diri singkat Hanry Roslaw Saputra.</small></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Riwayat pendidikan formal -->
+    <section id="education" class="py-section section-alt">
+      <div class="container">
+        <h2 class="section-title" data-animate>Pendidikan</h2>
+        <div class="section-divider" data-animate></div>
+
+        <!-- Tabel pendidikan, bisa digeser horizontal di layar sempit -->
+        <div class="table-responsive cv-table-wrap" data-animate>
+          <table class="table align-middle cv-table edu-table mb-0">
+            <thead>
+              <tr>
+                <th scope="col"><i class="bi bi-calendar-event"></i>Tahun</th>
+                <th scope="col"><i class="bi bi-mortarboard-fill"></i>Institusi</th>
+                <th scope="col"><i class="bi bi-journal-bookmark-fill"></i>Jurusan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2003 &ndash; 2006</td>
+                <td>SMAN 10 Kota Bekasi</td>
+                <td>IPA</td>
+              </tr>
+              <tr>
+                <td>2006 &ndash; 2011</td>
+                <td>Universitas Gunadarma</td>
+                <td>Teknik Industri</td>
+              </tr>
+              <tr>
+                <td>2025 &ndash; <span class="badge badge-current">Present</span></td>
+                <td>Universitas Siber Asia</td>
+                <td>Teknik Informatika</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cv-note"><small>Riwayat pendidikan formal.</small></p>
+      </div>
+    </section>
+
+    <!-- Daftar pengalaman kerja disusun sebagai kartu -->
+    <section id="experience" class="py-section">
+      <div class="container">
+        <h2 class="section-title" data-animate>Pengalaman Kerja</h2>
+        <div class="section-divider" data-animate></div>
+
+        <div class="row g-4">
+
+          <!-- Pengalaman di PT Mitsuba Indonesia Pipe Parts -->
+          <div class="col-md-6" data-animate>
+            <article class="card experience-card h-100">
+              <div class="card-body">
+                <span class="badge period-badge">2012 &ndash; 2015</span>
+                <h3 class="card-title">PT Mitsuba Indonesia Pipe Parts</h3>
+                <h4 class="card-subtitle">Quality Control</h4>
+                <p class="work-meta"><small>Jam kerja: <strong>Full-time</strong></small></p>
+                <!-- Rincian tugas selama bekerja di sini -->
+                <ol class="job-list">
+                  <li>Melakukan inspeksi kualitas produk pada line produksi.</li>
+                  <li>Memeriksa proses produksi dan hasil akhir untuk memastikan produk dalam kondisi baik sebelum dikirim.</li>
+                  <li>Berkoordinasi dengan line produksi jika ditemukan cacat produksi pada sebagian produk.</li>
+                  <li>Menentukan apakah line produksi tetap berjalan atau perlu dihentikan berdasarkan hasil inspeksi.</li>
+                  <li>Membuat laporan harian untuk mendata seluruh temuan produk yang tidak lolos inspeksi.</li>
+                </ol>
+              </div>
+            </article>
+          </div>
+
+          <!-- Pengalaman di CV Roslawdev -->
+          <div class="col-md-6" data-animate>
+            <article class="card experience-card h-100">
+              <div class="card-body">
+                <span class="badge period-badge">2015 &ndash; 2021</span>
+                <h3 class="card-title">CV Roslawdev</h3>
+                <h4 class="card-subtitle">Pemilik / Founder</h4>
+                <p class="work-meta"><small>Jam kerja: <strong>Full-time</strong></small></p>
+                <ol class="job-list">
+                  <li>Membangun layanan hosting untuk website dan game online di Indonesia dan Asia.</li>
+                  <li>Bekerja sama dengan tim untuk memastikan layanan berjalan dengan baik.</li>
+                  <li>Menjalin kerja sama dengan beberapa data center di dalam dan luar negeri.</li>
+                  <li>Membangun jaringan yang kuat, stabil, dan andal terhadap serangan DDoS.</li>
+                  <li>Membuat program pendukung untuk membantu melindungi pelanggan dari isu cheat dan hack pada layanan yang digunakan.</li>
+                </ol>
+              </div>
+            </article>
+          </div>
+
+          <!-- Pengalaman di PT Akasata Cyber Technology -->
+          <div class="col-md-6" data-animate>
+            <article class="card experience-card h-100">
+              <div class="card-body">
+                <span class="badge period-badge">2021 &ndash; 2024</span>
+                <h3 class="card-title">PT Akasata Cyber Technology</h3>
+                <h4 class="card-subtitle">Security Manager</h4>
+                <p class="work-meta"><small>Jam kerja: <strong>Full-time</strong></small></p>
+                <ol class="job-list">
+                  <li>Membangun tim Security Operation Center (SOC) yang berpedoman pada NIST, regulasi, dan kebijakan perusahaan.</li>
+                  <li>Menyediakan pelatihan terkait cybersecurity di lingkungan perusahaan dan mitra.</li>
+                  <li>Bertanggung jawab terhadap operasional managed services SOC kepada pengguna dan mitra.</li>
+                  <li>Mengembangkan dan mengimplementasikan standar keamanan serta prosedur di dalam perusahaan.</li>
+                  <li>Mengelola budget pengembangan sistem keamanan dan optimisasi seperti WAF, SIEM, XDR, dan IDS/IPS untuk meningkatkan postur keamanan perusahaan.</li>
+                </ol>
+              </div>
+            </article>
+          </div>
+
+          <!-- Pekerjaan saat ini di PT Sinar Digital Nusantara -->
+          <div class="col-md-6" data-animate>
+            <article class="card experience-card h-100 current-job">
+              <div class="card-body">
+                <span class="badge period-badge badge-current">2023 &ndash; Present</span>
+                <h3 class="card-title">PT Sinar Digital Nusantara</h3>
+                <h4 class="card-subtitle">Head IT</h4>
+                <p class="work-meta"><small>Jam kerja: <strong>Full-time</strong></small></p>
+                <ol class="job-list">
+                  <li>Bertanggung jawab dalam membangun infrastruktur IT perusahaan.</li>
+                  <li>Bertanggung jawab dalam pemeliharaan infrastruktur IT perusahaan.</li>
+                  <li>Bertanggung jawab dalam pengembangan infrastruktur IT perusahaan.</li>
+                  <li>Bertanggung jawab dalam menjaga keamanan data dan akses pada seluruh infrastruktur perusahaan.</li>
+                  <li>Memimpin tim engineering untuk membangun infrastruktur yang sesuai dengan regulasi, kebijakan, dan kebutuhan perusahaan.</li>
+                </ol>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Daftar kemampuan teknis dan non-teknis -->
+    <section id="skills" class="py-section section-alt">
+      <div class="container">
+        <h2 class="section-title" data-animate>Keahlian</h2>
+        <div class="section-divider" data-animate></div>
+
+        <div class="row g-4">
+          <div class="col-md-6" data-animate>
+            <div class="card skill-card h-100">
+              <div class="card-body">
+                <h3 class="card-title">Keahlian Teknis</h3>
+                <!-- Kemampuan yang berkaitan langsung dengan pekerjaan IT -->
+                <ul class="skill-list">
+                  <li>IT Infrastructure</li>
+                  <li>Network Management</li>
+                  <li>Cybersecurity</li>
+                  <li>SOC Operation</li>
+                  <li>Cloud &amp; Hosting</li>
+                  <li>Server Management</li>
+                  <li>WAF, SIEM, XDR, IDS/IPS</li>
+                  <li>Web Development Basic</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6" data-animate>
+            <div class="card skill-card h-100">
+              <div class="card-body">
+                <h3 class="card-title">Soft Skill</h3>
+                <!-- Kemampuan personal saat memimpin dan bekerja sama -->
+                <ul class="skill-list">
+                  <li>Leadership</li>
+                  <li>Problem Solving</li>
+                  <li>Team Management</li>
+                  <li>Communication</li>
+                  <li>Analytical Thinking</li>
+                  <li>Decision Making</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Beberapa gambar pendukung suasana kerja -->
+        <div class="mt-5" data-animate>
+          <h3 class="subsection-title">Galeri Pendukung</h3>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <!-- Gambar bernuansa teknologi; klik untuk memperbesar -->
+              <img src="assets/images/technology.jpg"
+                alt="Visual teknologi keamanan jaringan dan infrastruktur digital"
+                data-title="Teknologi &amp; Keamanan Jaringan"
+                class="img-fluid rounded shadow gallery-img gallery-trigger"
+                role="button" tabindex="0">
+            </div>
+            <div class="col-md-6">
+              <!-- Gambar suasana kantor; klik untuk memperbesar -->
+              <img src="assets/images/office.jpg"
+                alt="Suasana kantor IT modern dengan ruang server perusahaan"
+                data-title="Kantor &amp; Infrastruktur IT"
+                class="img-fluid rounded shadow gallery-img gallery-trigger"
+                role="button" tabindex="0">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cara menghubungi serta tautan terkait -->
+    <section id="contact" class="py-section">
+      <div class="container">
+        <h2 class="section-title" data-animate>Kontak</h2>
+        <div class="section-divider" data-animate></div>
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-8" data-animate>
+            <p class="text-center contact-intro">
+              Tertarik berdiskusi atau bekerja sama? Silakan hubungi saya melalui kanal berikut.
+            </p>
+
+            <div class="row g-4 text-center">
+              <div class="col-md-4">
+                <div class="card contact-card h-100">
+                  <div class="card-body d-flex flex-column">
+                    <h3 class="contact-label">Email</h3>
+                    <p class="contact-value">roslaw.it@gmail.com</p>
+                    <!-- Tombol Bootstrap: membuka aplikasi email dengan alamat terisi -->
+                    <a href="mailto:roslaw.it@gmail.com" class="btn btn-primary mt-auto">Kirim Email</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card contact-card h-100">
+                  <div class="card-body d-flex flex-column">
+                    <h3 class="contact-label">WhatsApp</h3>
+                    <p class="contact-value">+62 89838 60095</p>
+                    <!-- Tombol Bootstrap: membuka chat WhatsApp di tab baru -->
+                    <a href="https://wa.me/628983860095" target="_blank" rel="noopener"
+                      class="btn btn-success mt-auto">Chat WhatsApp</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card contact-card h-100">
+                  <div class="card-body d-flex flex-column">
+                    <h3 class="contact-label">Perusahaan</h3>
+                    <p class="contact-value">Profil profesional</p>
+                    <!-- Tombol Bootstrap: tautan profil (sementara placeholder) -->
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener"
+                      class="btn btn-outline-primary mt-auto">Buka LinkedIn</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tautan tambahan; "Kembali ke atas" menuju section home -->
+            <p class="text-center mt-4 extra-links">
+              <a href="https://github.com" target="_blank" rel="noopener">GitHub (placeholder)</a> &middot;
+              <a href="https://getbootstrap.com" target="_blank" rel="noopener">Bootstrap Documentation</a> &middot;
+              <a href="#home">Kembali ke atas</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Catatan kaki dengan nama dan tahun -->
+  <footer class="site-footer">
+    <div class="container text-center">
+      <p class="mb-1 footer-name"><strong>Hanry Roslaw Saputra</strong></p>
+      <p class="mb-0">
+        <small>&copy; 2026 Hanry Roslaw Saputra &mdash; Website CV Pribadi.</small>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Tombol melayang untuk kembali ke atas (logikanya di script.js) -->
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Kembali ke atas" title="Kembali ke atas">&uarr;</button>
+
+  <!-- Popup gambar galeri; isi gambar diatur oleh script.js saat diklik -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content gallery-modal">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="galleryModalLabel">Galeri Pendukung</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body p-0 text-center">
+          <img id="galleryModalImg" src="" alt="" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Bootstrap (sudah termasuk Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script buatan sendiri -->
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>

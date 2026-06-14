@@ -1,0 +1,602 @@
+/* =================================================================
+   CV Hanry Roslaw Saputra - Stylesheet
+   Berisi penataan tampilan: body, navbar, hero, kartu, tabel,
+   gambar, tombol, footer, dan penyesuaian untuk layar kecil.
+   ================================================================= */
+
+/* ---------- Palet warna yang dipakai berulang ---------- */
+:root {
+  --navy: #0a2540;          /* biru tua dominan */
+  --navy-dark: #061a2e;
+  --blue: #1d6fe0;          /* aksen biru */
+  --blue-light: #4da3ff;    /* aksen biru muda */
+  --gray: #6b7280;
+  --gray-light: #f4f6f9;
+  --white: #ffffff;
+}
+
+/* ---------- Body & tipografi dasar ---------- */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #1f2937;
+  line-height: 1.7;
+  scroll-behavior: smooth;
+  background-color: var(--white);
+}
+
+/* Offset agar anchor tidak tertutup navbar fixed */
+section {
+  scroll-margin-top: 70px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  background-color: rgba(10, 37, 64, 0.95);
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Efek navbar saat halaman di-scroll (di-toggle oleh JavaScript) */
+.navbar.navbar-scrolled {
+  background-color: var(--navy-dark);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+
+.brand-accent {
+  color: var(--blue-light);
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  margin: 0 0.35rem;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--blue-light);
+}
+
+/* Garis bawah animasi untuk menu aktif */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.35rem;
+  right: 0.35rem;
+  bottom: 0;
+  height: 2px;
+  background: var(--blue-light);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Hero / bagian pembuka ---------- */
+.hero-section {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 60%, #103a66 100%);
+  color: var(--white);
+  padding: 9rem 0 5rem;
+}
+
+.hero-greeting {
+  color: var(--blue-light);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.hero-name {
+  font-weight: 700;
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-role {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #cdd9e8;
+  margin-bottom: 1.25rem;
+}
+
+.hero-tagline {
+  max-width: 540px;
+  color: #e4ebf3;
+  margin-bottom: 1.75rem;
+}
+
+.hero-tagline mark {
+  background-color: var(--blue-light);
+  color: var(--navy-dark);
+  padding: 0 0.25rem;
+}
+
+/* Foto profil bulat dengan bingkai lembut */
+.hero-avatar {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid rgba(77, 163, 255, 0.4);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Section umum & judul ---------- */
+.py-section {
+  padding: 5rem 0;
+}
+
+.section-alt {
+  background-color: var(--gray-light);
+}
+
+.section-title {
+  text-align: center;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.subsection-title {
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+
+/* Garis pemisah di bawah judul section */
+.section-divider {
+  width: 70px;
+  height: 4px;
+  background: var(--blue);
+  border-radius: 2px;
+  margin: 0 auto 2.5rem;
+}
+
+/* ---------- Gambar konten & galeri ---------- */
+.gallery-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.02);
+}
+
+/* Slideshow "Tentang Saya" */
+/* Tinggi default dipakai saat layout menumpuk di layar kecil */
+.about-carousel {
+  height: 300px;
+}
+
+.about-carousel .carousel-inner,
+.about-carousel .carousel-item {
+  height: 100%;
+}
+
+.about-carousel .carousel-inner {
+  border-radius: 12px;
+}
+
+/* Tiap gambar slide menutup area penuh tanpa gepeng */
+.about-slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Di desktop, gambar mengikuti tinggi kolom teks (tidak menambah tinggi
+   sendiri) sehingga sejajar dari awal teks sampai tombol kontak */
+@media (min-width: 992px) {
+  .about-img-col {
+    position: relative;
+  }
+
+  .about-carousel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--bs-gutter-x) * 0.5);
+    right: calc(var(--bs-gutter-x) * 0.5);
+    height: auto;
+  }
+}
+
+/* Gambar galeri terasa bisa diklik (membuka popup) */
+.gallery-trigger {
+  cursor: pointer;
+}
+
+.gallery-trigger:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* Tampilan popup/modal galeri */
+.gallery-modal {
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.gallery-modal .modal-title {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.gallery-modal .modal-body img {
+  display: block;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+/* ---------- Tabel biodata & pendidikan ---------- */
+/* Pembungkus memberi sudut membulat + bayangan pada tabel */
+.cv-table-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(10, 37, 64, 0.10);
+  border: 1px solid #e7edf5;
+}
+
+.cv-table {
+  background-color: var(--white);
+  margin-bottom: 0;
+}
+
+/* Setiap sel diberi ruang lebih lega */
+.cv-table td,
+.cv-table th {
+  padding: 0.95rem 1.25rem;
+  border-color: #eef2f7;
+  vertical-align: middle;
+}
+
+/* Ikon kecil di depan label */
+.cv-table th .bi {
+  color: var(--blue);
+  margin-right: 0.6rem;
+  font-size: 1rem;
+}
+
+/* Header gelap untuk tabel pendidikan */
+.edu-table thead th {
+  background: linear-gradient(135deg, var(--navy) 0%, #103a66 100%);
+  color: var(--white);
+  font-weight: 500;
+  border-color: transparent;
+}
+
+.edu-table thead th .bi {
+  color: var(--blue-light);
+}
+
+/* Baris belang lembut pada tabel pendidikan */
+.edu-table tbody tr:nth-child(even) {
+  background-color: #f7faff;
+}
+
+/* Kolom label biodata dengan aksen garis biru */
+.biodata-table tbody th {
+  background-color: #f4f8fd;
+  color: var(--navy);
+  font-weight: 600;
+  width: 34%;
+  border-left: 4px solid var(--blue);
+}
+
+/* Sorotan baris saat kursor menyentuh */
+.cv-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.cv-table tbody tr:hover th,
+.cv-table tbody tr:hover td {
+  background-color: #eaf2fe;
+}
+
+/* Lencana untuk menonjolkan jabatan & status */
+.badge-role {
+  background-color: var(--blue);
+  color: var(--white);
+  font-weight: 500;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+/* Keterangan kecil di bawah tabel */
+.cv-note {
+  color: var(--gray);
+  font-size: 0.85rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0;
+}
+
+/* ---------- Kartu pengalaman, keahlian, & kontak ---------- */
+.experience-card,
+.skill-card,
+.contact-card {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(10, 37, 64, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Kartu sedikit terangkat saat disentuh kursor */
+.experience-card:hover,
+.skill-card:hover,
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(10, 37, 64, 0.16);
+}
+
+.experience-card.current-job {
+  border-left: 5px solid var(--blue);
+}
+
+.card-title {
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 0.75rem;
+}
+
+.card-subtitle {
+  color: var(--blue);
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.work-meta {
+  color: var(--gray);
+  margin-bottom: 0.75rem;
+}
+
+/* Badge periode kerja */
+.period-badge {
+  background-color: var(--navy);
+  color: var(--white);
+  font-weight: 500;
+  padding: 0.4rem 0.7rem;
+}
+
+.badge-current {
+  background-color: var(--blue);
+}
+
+.job-list {
+  padding-left: 1.1rem;
+  margin-bottom: 0;
+}
+
+.job-list li {
+  margin-bottom: 0.4rem;
+}
+
+/* ---------- List keahlian ---------- */
+.skill-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.skill-list li {
+  padding: 0.55rem 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--gray-light);
+  border-left: 3px solid var(--blue);
+  border-radius: 6px;
+  transition: background-color 0.25s ease;
+}
+
+.skill-list li:hover {
+  background-color: #e2ecfa;
+}
+
+/* ---------- Kontak ---------- */
+.contact-intro {
+  color: var(--gray);
+  margin-bottom: 2rem;
+}
+
+/* Kartu kontak diberi border + shadow lebih tegas dengan aksen atas
+   agar tidak menyatu dengan latar halaman yang putih */
+.contact-card {
+  border: 1px solid #e7edf5;
+  border-top: 4px solid var(--blue);
+  box-shadow: 0 12px 30px rgba(10, 37, 64, 0.12);
+  background-color: #ffffff;
+}
+
+.contact-card:hover {
+  box-shadow: 0 18px 40px rgba(10, 37, 64, 0.20);
+}
+
+.contact-label {
+  font-size: 1.1rem;
+  color: var(--navy);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+/* Teks detail kontak di atas tombol */
+.contact-value {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  word-break: break-word;
+}
+
+.contact-link {
+  color: var(--blue);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+.extra-links a {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.extra-links a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+/* ---------- Tombol ---------- */
+.btn-primary {
+  background-color: var(--blue);
+  border-color: var(--blue);
+}
+
+.btn-primary:hover {
+  background-color: #1559b8;
+  border-color: #1559b8;
+}
+
+.btn-outline-primary {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--blue);
+  border-color: var(--blue);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background-color: var(--navy-dark);
+  color: #cdd9e8;
+  padding: 2rem 0;
+}
+
+.footer-name {
+  color: var(--white);
+}
+
+/* ---------- Tombol scroll to top ---------- */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--blue);
+  color: var(--white);
+  font-size: 1.4rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+  z-index: 1050;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--navy);
+}
+
+/* ---------- Elemen memudar naik saat masuk layar ---------- */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-animate].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =================================================================
+   Penyesuaian tampilan untuk tablet dan ponsel
+   ================================================================= */
+@media (max-width: 991.98px) {
+  .hero-section {
+    padding: 7rem 0 3.5rem;
+    text-align: center;
+  }
+
+  .hero-tagline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hero-name {
+    font-size: 2.1rem;
+  }
+
+  .hero-avatar {
+    width: 210px;
+    height: 210px;
+  }
+
+  .py-section {
+    padding: 3.5rem 0;
+  }
+
+  .gallery-img {
+    height: 240px;
+  }
+
+  /* Tinggi slideshow lebih ringkas di layar kecil */
+  .about-carousel {
+    height: 260px;
+  }
+
+  .cv-table tbody th {
+    width: 40%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-name {
+    font-size: 1.8rem;
+  }
+
+  .hero-role {
+    font-size: 1.05rem;
+  }
+
+  .btn-lg {
+    width: 100%;
+  }
+}
